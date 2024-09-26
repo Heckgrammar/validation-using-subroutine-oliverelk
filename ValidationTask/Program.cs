@@ -17,6 +17,7 @@ namespace ValidationTask
                         Console.Write("Enter first name: ");
                         firstName = Console.ReadLine();
                         while (ValidName(firstName));
+                        
 
                     // Get valid last name
   
@@ -41,11 +42,10 @@ namespace ValidationTask
                         while (ValidPassword(password));
 
                     // Get valid email address
-                    do
-                    {
+                    
                         Console.Write("Enter email address: ");
                         emailAddress = Console.ReadLine();
-                    } while (ValidEmail(emailAddress));
+                        while (ValidEmail(emailAddress));
 
                     // Generate username
                     username = CreateUserName(firstName, lastName, age);
@@ -101,8 +101,8 @@ namespace ValidationTask
                     // Email should also contain only one '@' and may have any number of '.' but no other special characters.
 
                     // Check email format with Regex
-                    Regex emailPattern = new Regex(@"^[a-zA-Z0-9]{2,}@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$");
-                    if (!emailPattern.IsMatch(email))
+                        if (emailPattern.length <= 2 && emailPattern.Contains("@" , ".")
+                    if (emailPattern.IsMatch(email))
                     {
                         Console.WriteLine("Invalid email address.");
                         return false;
